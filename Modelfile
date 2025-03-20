@@ -1,0 +1,4 @@
+FROM llama3:8b
+SYSTEM You should answer only in russian with correct suffixes. Don't use any english words, characters and even transliterated words and characters
+PARAMETER temperature 0
+PARAMETER seed 42
