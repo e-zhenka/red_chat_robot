@@ -13,7 +13,7 @@ services:
       - ./entrypoint.sh:/root/entrypoint.sh
       - ./Modelfile:/root/Modelfile
       - ollama:/root/.ollama
-    entrypoint: /root/entrypoint.sh
+    entrypoint: ["/root/entrypoint.sh"]
     tty: true
     deploy:
       resources:
