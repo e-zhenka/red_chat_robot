@@ -20,7 +20,6 @@ chat    | To create a public link, set `share=True` in `launch()`.
 - libraries:
 	- ollama
 	- gradio
-- docker 20.10.21; docker-compose v2.13.0
+- docker
 - shell скрипт для загрузки и создания моделей
 - Modelfile для задания поведния ЛЛМ
-- управление зависимостями: poetry

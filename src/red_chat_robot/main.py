@@ -1,22 +1,20 @@
 from collections import deque
+from pathlib import Path
 
 import gradio as gr
 import ollama
+from config import Config
 
 chat_history = deque(maxlen=20)
+# config_path = Path(__file__).parents[-3] / "config.yaml"
+settings = Config.from_yaml("config.yaml").model_dump()
 
 
 def chat(msg, history):
     global chat_history
     chat_history.append({"role": "user", "content": msg})
     chat_model = ollama.Client(host="http://ollama:11434")
-    res = chat_model.chat(
-        model="ivan",
-        messages=chat_history,
-        keep_alive=60,
-        stream=True,
-        options={"f16_kv": True, "num_batch": 256, "num_thread": 10}
-    )
+    res = chat_model.chat(messages=chat_history, **settings)
     text = ''
     for item in res:
         text += item.message.content

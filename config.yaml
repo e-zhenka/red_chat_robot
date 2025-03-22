@@ -1,0 +1,7 @@
+model: "ivan"
+keep_alive: 60
+stream: True
+options:
+  f16_kv: True
+  num_batch: 256
+  num_thread: 10
