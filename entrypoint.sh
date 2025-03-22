@@ -1,11 +1,32 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 ollama serve &
 
-ollama pull llama3:8b
+sleep 5
 
-ollama create ivan -f /root/Modelfile
+if ! ollama pull llama3:8b; then
+    echo "Error during model loading"
+    exit 1
+fi
 
-ollama rm llam3:8b
+if [ ! -f /root/Modelfile ]; then
+    echo "Error: /root/Modelfile not found"
+    exit 1
+fi
 
-ollama run ivan
+if ! ollama create ivan -f /root/Modelfile; then
+    echo "Error during model creating"
+    exit 1
+fi
+
+if ! ollama rm llama3:8b; then
+    echo "Error during model deleting"
+    exit 1
+fi
+
+if ! ollama run ivan; then
+    echo "Error during model startup"
+    exit 1
+fi
+
+echo "All operations completed successfully!"
