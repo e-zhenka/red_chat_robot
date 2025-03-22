@@ -15,13 +15,13 @@ services:
       - ollama:/root/.ollama
     entrypoint: ["/root/entrypoint.sh"]
     tty: true
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
     networks:
       - internal
 
