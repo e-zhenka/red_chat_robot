@@ -13,17 +13,8 @@ services:
       - ./entrypoint.sh:/root/entrypoint.sh
       - ./Modelfile:/root/Modelfile
       - ollama:/root/.ollama
-    # entrypoint: "/root/entrypoint.sh"
-    entrypoint: ["/root/entrypoint.sh"]
-    # entrypoint: ["sh", "-c", "ollama serve & sleep 5 && ollama pull llama3:8b && ollama run llama3:8b"]
+    entrypoint: ["sh", "-c", "ollama serve & sleep 5 && ollama pull llama3:8b && ollama run llama3:8b"]
     tty: true
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: 1
-    #           capabilities: [gpu]
     networks:
       - internal
 
