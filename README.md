@@ -20,5 +20,3 @@ chat    | To create a public link, set `share=True` in `launch()`.
 	- ollama
 	- gradio
 - docker
-- shell скрипт для загрузки и создания моделей
-- Modelfile для задания поведния ЛЛМ
