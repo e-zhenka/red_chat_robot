@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field
 
 class Config(BaseModel):
     model: str = Field(
-        default="ivan",
+        default="llam3:8b",
         alias="llm_model",
         title="LLM model deployed in ollama container"
     )
