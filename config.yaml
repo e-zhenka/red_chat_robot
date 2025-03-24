@@ -1,4 +1,4 @@
-model: "ivan"
+model: "llam3:8b"
 keep_alive: 60
 stream: True
 options:
