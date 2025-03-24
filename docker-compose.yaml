@@ -10,8 +10,6 @@ services:
       - OLLAMA_LLM_LIBRARY=cuda
       - NVIDIA_VISIBLE_DEVICES=all
     volumes:
-      - ./entrypoint.sh:/root/entrypoint.sh
-      - ./Modelfile:/root/Modelfile
       - ollama:/root/.ollama
     entrypoint: ["sh", "-c", "ollama serve & sleep 5 && ollama pull llama3:8b && ollama run llama3:8b"]
     tty: true
